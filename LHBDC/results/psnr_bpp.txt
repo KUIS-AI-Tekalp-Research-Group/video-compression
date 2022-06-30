@@ -1,0 +1,68 @@
+
+
+# Rate-distortion data for "End-to-End Rate-Distortion Optimized Learned Hierarchical Bi-Directional Video Compression" on UVG.
+# The first column contains bits per pixel (bpp) values.
+# The second column contains PSNR
+
+0.0457,    35.43 
+0.0648,    36.53
+0.0950,    37.51
+0.1722,    38.44
+0.3074,    39.40
+
+
+# Beauty sequence
+
+0.0226,    33.89
+0.0402,    34.07
+0.0883,    34.35
+0.2836,    35.25
+0.6183,    36.47
+
+# Bosphorus sequence
+
+0.0225,    37.12
+0.0333,    38.37
+0.0482,    39.52
+0.0771,    40.60
+0.1355,    41.55
+
+# Honeybee sequence
+
+0.0255,    35.70
+0.0342,    36.73
+0.0469,    37.53
+0.0754,    38.06
+0.1657,    38.57
+
+# Jockey sequence
+
+0.0400,    36.58
+0.0531,    37.49
+0.0737,    38.21
+0.1241,    38.87
+0.2245,    39.46
+
+# Ready sequence
+
+0.0774,    34.77
+0.1013,    36.35
+0.1284,    37.75
+0.2132,    38.92
+0.3166,    40.12
+
+# Shake sequence
+
+0.0588,    34.49
+0.0866,    35.70
+0.1284,    36.75
+0.2042,    37.68
+0.3535,    38.63
+
+# Yatch sequence
+
+0.0796,    35.02
+0.1157,    36.56
+0.1676,    38.07
+0.2439,    39.29
+0.3605,    40.58

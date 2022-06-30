@@ -1,0 +1,11 @@
+
+
+# Rate-distortion data for "End-to-End Rate-Distortion Optimized Learned Hierarchical Bi-Directional Video Compression" on UVG.
+# The first column contains bits per pixel (bpp) values.
+# The second column contains MSSIM
+
+0.0442,    0.9583
+0.0625,    0.9648
+0.1094,    0.9733
+0.2014,    0.9799
+0.3560,    0.9851
