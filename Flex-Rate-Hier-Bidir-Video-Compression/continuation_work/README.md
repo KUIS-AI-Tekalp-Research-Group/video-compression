@@ -1,6 +1,6 @@
 
 # Flexible-Rate Learned Hierarchical Bi-Directional Video Compression with Motion Refinement and Frame-Level Bit Allocation
-This repository contains the continuation of our work on ["Flexible-Rate Learned Hierarchical Bi-Directional Video Compression with Motion Refinement and Frame-Level Bit Allocation"](will be added), implemented at [github repository](https://github.com/erenovic/Flex-Rate-Learned-Hierarchical-Bidirectional-Video-Compression-w-Motion-Refinement).
+This folder contains the continuation of our work on ["Flexible-Rate Learned Hierarchical Bi-Directional Video Compression with Motion Refinement and Frame-Level Bit Allocation"](will be added), implemented at [github repository](https://github.com/erenovic/Flex-Rate-Learned-Hierarchical-Bidirectional-Video-Compression-w-Motion-Refinement).
 
 The learned bi-directional compression network provided in this repository is the same as the work mentioned above. However, this work utilizes the gained intra-coding network which was proposed by [Cui et al. (2021)](https://openaccess.thecvf.com/content/CVPR2021/html/Cui_Asymmetric_Gained_Deep_Image_Compression_With_Continuous_Rate_Adaptation_CVPR_2021_paper.html) and implemented (unofficially) in [this repository](https://github.com/erenovic/Flex-Rate-MBT2018). Using the gained intra-coding network, we achieve even better results compared to our work on "Flexible-Rate Learned Hierarchical Bi-Directional Video Compression with Motion Refinement and Frame-Level Bit Allocation".
 
@@ -39,4 +39,4 @@ python testing.py
 
 The rate-distortion performance of the re-implementation as following in terms of PSNR on [UVG dataset](http://ultravideo.fi/#testsequences).
 
-![](overall_model_result.png)
+![](continuation_results/overall_model_result.png)
