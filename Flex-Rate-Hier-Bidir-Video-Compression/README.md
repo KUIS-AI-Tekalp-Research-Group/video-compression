@@ -19,8 +19,8 @@ For further reference, take a look at our [paper](https://arxiv.org/abs/2206.136
 ```
 -->
 
-## Continuation Work
-As an improvement on the proposed network, we also implemented the gained version of the learned intra-coding network proposed by [Minnen et al. (2018)](https://arxiv.org/abs/1809.02736). This idea was proposed by [Cui et al. (2021)](https://openaccess.thecvf.com/content/CVPR2021/html/Cui_Asymmetric_Gained_Deep_Image_Compression_With_Continuous_Rate_Adaptation_CVPR_2021_paper.html). The learned hierarchical bi-directional compression network is kept same as proposed in this repository while the intra-coding network is simply replaced with its gained counterpart. To check our results, you can refer to our [additional folder](https://github.com/KUIS-AI-Tekalp-Research-Group/video-compression/tree/master/Flex-Rate-Hier-Bidir-Video-Compression/continuation_work).
+<!-- ## Continuation Work
+As an improvement on the proposed network, we also implemented the gained version of the learned intra-coding network proposed by [Minnen et al. (2018)](https://arxiv.org/abs/1809.02736). This idea was proposed by [Cui et al. (2021)](https://openaccess.thecvf.com/content/CVPR2021/html/Cui_Asymmetric_Gained_Deep_Image_Compression_With_Continuous_Rate_Adaptation_CVPR_2021_paper.html). The learned hierarchical bi-directional compression network is kept same as proposed in this repository while the intra-coding network is simply replaced with its gained counterpart. To check our results, you can refer to our [additional folder](https://github.com/KUIS-AI-Tekalp-Research-Group/video-compression/tree/master/Flex-Rate-Hier-Bidir-Video-Compression/continuation_work). -->
 
 ## Codes
 
