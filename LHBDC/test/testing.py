@@ -50,7 +50,7 @@ parser.add_argument("--device", type=str, default="cuda")                       
 parser.add_argument("--workers", type=int, default=4)                                           # number of workers
 
 parser.add_argument("--b_pretrained", type=str, default="../new_compression_1626.pth")                # Load model from this file
-parser.add_argument("--i_qual", type=int, default=8)
+parser.add_argument("--i_qual", type=int, default=7)
 parser.add_argument("--lmbda", type=int, default=1626)
 # parser.add_argument("--p_pretrained", type=str, default="../SSF_gained.pth")                  # Load model from this file
 
