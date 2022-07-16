@@ -89,6 +89,30 @@ class MVCompressor(MeanScaleHyperprior):
             ResidualBlock(N, N),
             subpel_conv3x3(N, 4, 2),
         )
+    def compress(self, x):
+        y = self.g_a(x)
+        z = self.h_a(y)
+
+        z_strings = self.entropy_bottleneck.compress(z)
+        z_hat = self.entropy_bottleneck.decompress(z_strings, z.size()[-2:])
+
+        gaussian_params = self.h_s(z_hat)
+        scales_hat, means_hat = gaussian_params.chunk(2, 1)
+        indexes = self.gaussian_conditional.build_indexes(scales_hat)
+        y_strings = self.gaussian_conditional.compress(y, indexes, means=means_hat)
+        return {"strings": [y_strings, z_strings], "shape": z.size()[-2:]}
+
+    def decompress(self, strings, shape):
+        assert isinstance(strings, list) and len(strings) == 2
+        z_hat = self.entropy_bottleneck.decompress(strings[1], shape)
+        gaussian_params = self.h_s(z_hat)
+        scales_hat, means_hat = gaussian_params.chunk(2, 1)
+        indexes = self.gaussian_conditional.build_indexes(scales_hat)
+        y_hat = self.gaussian_conditional.decompress(
+            strings[0], indexes, means=means_hat
+        )
+        x_hat = self.g_s(y_hat)
+        return {"x_hat": x_hat}
         
 class ResidualCompressor(MeanScaleHyperprior):
 
@@ -140,6 +164,30 @@ class ResidualCompressor(MeanScaleHyperprior):
             subpel_conv3x3(N, 3, 2),
         )
         
+    def compress(self, x):
+        y = self.g_a(x)
+        z = self.h_a(y)
+
+        z_strings = self.entropy_bottleneck.compress(z)
+        z_hat = self.entropy_bottleneck.decompress(z_strings, z.size()[-2:])
+
+        gaussian_params = self.h_s(z_hat)
+        scales_hat, means_hat = gaussian_params.chunk(2, 1)
+        indexes = self.gaussian_conditional.build_indexes(scales_hat)
+        y_strings = self.gaussian_conditional.compress(y, indexes, means=means_hat)
+        return {"strings": [y_strings, z_strings], "shape": z.size()[-2:]}
+
+    def decompress(self, strings, shape):
+        assert isinstance(strings, list) and len(strings) == 2
+        z_hat = self.entropy_bottleneck.decompress(strings[1], shape)
+        gaussian_params = self.h_s(z_hat)
+        scales_hat, means_hat = gaussian_params.chunk(2, 1)
+        indexes = self.gaussian_conditional.build_indexes(scales_hat)
+        y_hat = self.gaussian_conditional.decompress(
+            strings[0], indexes, means=means_hat
+        )
+        x_hat = self.g_s(y_hat)
+        return {"x_hat": x_hat}    
         
 
 class Mask(nn.Module):
