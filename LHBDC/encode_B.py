@@ -30,7 +30,7 @@ args = parser.parse_args()
 
 
 model = m.Model()
-model.load_state_dict(torch.load(f"pretrained_weights/new_compression_{args.l}.pth", map_location=lambda storage, loc: storage)["state_dict"])
+model.load_state_dict(torch.load(f"pretrained_weights/compression_{args.l}.pth", map_location=lambda storage, loc: storage)["state_dict"])
 model.mv_compressor.update(force=True)
 model.residual_compressor.update(force=True)
 model = model.to(device).float()
