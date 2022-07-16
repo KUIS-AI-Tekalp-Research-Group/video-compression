@@ -89,6 +89,7 @@ class MVCompressor(MeanScaleHyperprior):
             ResidualBlock(N, N),
             subpel_conv3x3(N, 4, 2),
         )
+        
     def compress(self, x):
         y = self.g_a(x)
         z = self.h_a(y)
