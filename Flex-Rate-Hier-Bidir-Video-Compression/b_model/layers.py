@@ -150,6 +150,43 @@ class FlowCompressor(MeanScaleHyperprior):
             "x_hat": x_hat,
             "likelihoods": {"y": y_likelihoods, "z": z_likelihoods},
         }
+
+    def compress(self, x, n, l):
+        y = self.g_a(x)
+        scaled_y = self.gain_unit(y, n, l)
+        z = self.h_a(scaled_y)
+        scaled_z = self.hyper_gain_unit(z, n, l)
+
+        z_strings = self.entropy_bottleneck.compress(scaled_z)
+        z_hat = self.entropy_bottleneck.decompress(z_strings, z.size()[-2:])
+        scaled_z_hat = self.hyper_inv_gain_unit(z_hat, n, l)
+
+        gaussian_params = self.h_s(scaled_z_hat)
+        scales_hat, means_hat = gaussian_params.chunk(2, 1)
+        indexes = self.gaussian_conditional.build_indexes(scales_hat)
+        y_strings = self.gaussian_conditional.compress(y, indexes, means=means_hat)
+
+        return {
+            "strings": [y_strings, z_strings], 
+            "shape": z.size()[-2:]
+        }
+
+    def decompress(self, strings, shape, n, l):
+        assert isinstance(strings, list) and len(strings) == 2
+        z_hat = self.entropy_bottleneck.decompress(strings[1], shape)
+        scaled_z_hat = self.hyper_inv_gain_unit(z_hat, n, l)
+        gaussian_params = self.h_s(scaled_z_hat)
+        scales_hat, means_hat = gaussian_params.chunk(2, 1)
+        indexes = self.gaussian_conditional.build_indexes(scales_hat)
+        y_hat = self.gaussian_conditional.decompress(
+            strings[0], indexes, means=means_hat
+        )
+        scaled_y_hat = self.inv_gain_unit(y_hat, n, l)
+        x_hat = self.g_s(scaled_y_hat).clamp_(0, 1)
+
+        return {
+            "x_hat": x_hat
+        }
         
         
 class ResidualCompressor(MeanScaleHyperprior):
@@ -226,6 +263,45 @@ class ResidualCompressor(MeanScaleHyperprior):
         return {
             "x_hat": x_hat,
             "likelihoods": {"y": y_likelihoods, "z": z_likelihoods},
+        }
+
+    
+    def compress(self, x, n, l):
+        y = self.g_a(x)
+        scaled_y = self.gain_unit(y, n, l)
+        z = self.h_a(scaled_y)
+        scaled_z = self.hyper_gain_unit(z, n, l)
+
+        z_strings = self.entropy_bottleneck.compress(scaled_z)
+        z_hat = self.entropy_bottleneck.decompress(z_strings, z.size()[-2:])
+        scaled_z_hat = self.hyper_inv_gain_unit(z_hat, n, l)
+
+        gaussian_params = self.h_s(scaled_z_hat)
+        scales_hat, means_hat = gaussian_params.chunk(2, 1)
+        indexes = self.gaussian_conditional.build_indexes(scales_hat)
+        y_strings = self.gaussian_conditional.compress(y, indexes, means=means_hat)
+
+        return {
+            "strings": [y_strings, z_strings], 
+            "shape": z.size()[-2:]
+        }
+
+
+    def decompress(self, strings, shape, n, l):
+        assert isinstance(strings, list) and len(strings) == 2
+        z_hat = self.entropy_bottleneck.decompress(strings[1], shape)
+        scaled_z_hat = self.hyper_inv_gain_unit(z_hat, n, l)
+        gaussian_params = self.h_s(scaled_z_hat)
+        scales_hat, means_hat = gaussian_params.chunk(2, 1)
+        indexes = self.gaussian_conditional.build_indexes(scales_hat)
+        y_hat = self.gaussian_conditional.decompress(
+            strings[0], indexes, means=means_hat
+        )
+        scaled_y_hat = self.inv_gain_unit(y_hat, n, l)
+        x_hat = self.g_s(scaled_y_hat).clamp_(0, 1)
+
+        return {
+            "x_hat": x_hat
         }
     
     
