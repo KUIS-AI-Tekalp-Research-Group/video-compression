@@ -35,7 +35,7 @@ pip install compressai
 ```
 
 ### Testing
-To run a test yourself, ```testing.py``` is provided in ```test``` folder. After downloading and placing the [pretrained bidirectional compression model](https://drive.google.com/file/d/1GSQcrFw3tulzfqRZEEWT5CQCYEtF3Gju/view?usp=sharing) in the main directory, you can run the code
+To run a test yourself, ```testing.py``` is provided in ```test``` folder. After downloading and placing the [pretrained bidirectional compression model](https://drive.google.com/file/d/1eMRnwBqdRqYVk3m9475ZOIMBpySgBItk/view?usp=sharing) in the main directory, you can run the code
 
 ```
 cd test
