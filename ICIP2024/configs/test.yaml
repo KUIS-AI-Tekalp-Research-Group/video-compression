@@ -1,0 +1,31 @@
+defaults:
+  - _self_
+  - dataset: UVG.yaml
+  - override hydra/hydra_logging: colorlog
+  #- override hydra/job_logging: colorlog
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d_%H-%M-%S}
+
+seed: 123
+torch_seed: 321
+
+intra_weights_path: checkpoints/intra_weights
+intra_models: 
+  - "${intra_weights_path}/ELIC_Rate_4.pth.tar"
+  - "${intra_weights_path}/ELIC_Rate_5.pth.tar"
+  - "${intra_weights_path}/ELIC_Rate_6.pth.tar"
+  - "${intra_weights_path}/ELIC_Rate_7.pth.tar"
+  - "${intra_weights_path}/ELIC_Rate_8.pth.tar"
+  
+device: cuda
+
+levels: 5 
+
+pretrained: checkpoints/checkpoint.pth
+
+betas_mse: [0.0056, 0.0107, 0.0207, 0.0400, 0.0772]
+
+results_path: "results.csv"
+
