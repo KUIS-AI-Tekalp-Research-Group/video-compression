@@ -23,7 +23,7 @@ of our proposed single-model motion-adaptive inference approach to all existing 
 
 You can download the pretrained weights for our model from the following link:
 
-[Download Pretrained Weights](https://drive.google.com/drive/folders/1c8PSVbUYxoZvUK3ZAL_57Btzr7dC_U3H?usp=sharing)
+[Download Pretrained Weights](https://drive.google.com/drive/folders/1Q7YIJeWeSYyFGYcYN5xlPKr22YsBz4Fi?usp=drive_link)
 
 ## Requirements
 
