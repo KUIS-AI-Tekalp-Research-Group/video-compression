@@ -1,0 +1,19 @@
+
+base_path: "/datasets/UVG/full_test"
+src_type: "png"
+gop : 16
+sequences:
+    beauty:
+      num_frames: 600
+    bosphorus:
+      num_frames: 600
+    honeybee:
+      num_frames: 600
+    jockey:
+      num_frames: 600
+    ready:
+      num_frames: 600
+    shake:
+      num_frames: 300
+    yacht:
+      num_frames: 600
