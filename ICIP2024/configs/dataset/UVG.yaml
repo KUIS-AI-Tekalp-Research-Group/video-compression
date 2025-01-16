@@ -15,5 +15,5 @@ sequences:
       num_frames: 600
     shake:
       num_frames: 300
-    yatch:
+    yacht:
       num_frames: 600
