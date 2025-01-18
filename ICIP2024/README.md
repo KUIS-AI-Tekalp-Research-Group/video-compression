@@ -21,9 +21,13 @@ of our proposed single-model motion-adaptive inference approach to all existing 
 
 ## Pretrained Model Weights
 
-You can download the pretrained weights for our model from the following link:
+You can download the pretrained checkpoint for our model from the following link:
 
-[Download Pretrained Weights](https://drive.google.com/drive/folders/1Q7YIJeWeSYyFGYcYN5xlPKr22YsBz4Fi?usp=drive_link)
+[Download Pretrained Checkpoint](https://drive.google.com/drive/folders/1Q7YIJeWeSYyFGYcYN5xlPKr22YsBz4Fi?usp=drive_link)
+
+You can also download the pretrained Intra codec (ELIC) from the following link:
+
+[Download Pretrained ELIC](https://drive.google.com/drive/folders/1WGAVUQaL6wzBqQkjXko0ToMV4QHijVpK?usp=drive_link)
 
 ## Requirements
 
