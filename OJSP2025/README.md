@@ -4,6 +4,9 @@ This repository contains the reference implementation of the **Content-Adaptive 
 
 > **Bilican, A., Yilmaz, M. A., & Tekalp, A. M.** (2025). *Content-Adaptive Inference for State-of-the-Art Learned Video Compression*. IEEE Open Journal of Signal Processing, 6, 498–506. doi:10.1109/OJSP.2025.3564817
 
+The python file contains an example implementation of the proposed method. One can easilty adapt this code to needed repository. 
+In the [DCVC-FM]([https://www.openai.com](https://github.com/microsoft/DCVC/tree/main/DCVC-family/DCVC-FM)) repository under the src/models directory the base implementation of python file above can be found. 
+
 ## Features
 
 - **Adaptive Frame Downsampling**  
