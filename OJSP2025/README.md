@@ -1,4 +1,4 @@
-# Content-Adaptive Inference for State-of-the-Art Learned Video Compression
+# Content-Adaptive Inference for State-of-the-Art Learned Video Compression [[paper]](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10978087)
 
 This repository contains the reference implementation of the **Content-Adaptive Inference** framework described in:
 
